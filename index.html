@@ -16,26 +16,6 @@
 	<link rel="stylesheet" href="skin/default.css">
 	<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	-->
-	<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
-	<script type="text/javascript">
-		function get_action(form) {
-			console.log("hooooo");
-	    var v = grecaptcha.getResponse();
-	    var downloadLink = "<a href = 'https://app.box.com/s/zakv8pf3ikxpiqcihddoytlv2hw07mee' target='_blank'>descargar</a>";
-	    var captcha = document.getElementById('captcha');
-
-	    if(v.length == 0)
-	    {
-	        captcha.innerHTML="debes usar el captcha";
-	        return false;
-	    }
-	    if(v.length != 0)
-	    {
-	        captcha.innerHTML = downloadLink;
-	        return true ; 
-	    }
-		}
-	</script>
 </head>
 
 <body>
@@ -306,8 +286,8 @@
 					<div class="team-member">
 						<figure class="member-photo"><img src="img/team/member4.jpg" alt="" /></figure>
 						<div class="team-detail">
-							<h4>Estamos contratando</h4>
-							<span>Diseñador</span>
+							<h4>Fabio</h4>
+							<span>Desarrollo</span>
 						</div>
 					</div>
 				</div>
@@ -315,7 +295,6 @@
 
 		</div>
 	</section>
-	<!-- /about -->
 
 	<!-- contact -->
 	<section id="section-contact" class="section appear clearfix">
@@ -325,16 +304,15 @@
 				<div class="col-md-offset-3 col-md-6">
 					<div class="section-header">
 						<h2 class="section-heading animated" data-animation="bounceInUp">Contáctenos</h2>
-						<p>Nos emociona recibir sus consideraciones</p>
+						<p>Para probar SeGGu por 15 días, déjenos su email y tilde en el captcha para demostrar que no es un robot antes de apretar [enviar], aparecerá un enlace para descargar el instalador.</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="cform" id="contact-form">
-
-<!--						<form action="contact/contact.php" method="post" role="form" class="contactForm">-->
-						<form action="submit" method="post" role="form" class="contactForm">
+            <form action="contact/contact.php" method="post" role="form" class="contactForm">
+						<!--<form action="submit" method="post" role="form" class="contactForm">-->
 							<div class="form-group">
 								
 								<input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:4" data-msg="Por favor ingrese al menos 4 letras" />
@@ -345,36 +323,25 @@
 								<input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
 								<div class="validation"></div>
 							</div>
-							<div class="form-group">
-								
-								<input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="maxlen:4" data-msg="Por favor ingrese al menos 8 letras" />
-								<div class="validation"></div>
-							</div>
+
 							<div class="form-group">
 								<label for="message">Mensaje</label>
 								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor"></textarea>
 								<div class="validation"></div>
 							</div>
-							<div class="g-recaptcha" id="rcaptcha" style="margin-left: 90px;" data-sitekey="6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E"></div>
+
+              <div id="captcha_container"></div>
 							<span id="captcha" style="margin-left:100px;color:red" ></span>
-							<button type="submit" onclick = "get_action(this)" class="btn btn-theme pull-left">Enviar</button>
+
 						</form>
 
 						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!</div>
-
 					</div>
 				</div>
-				<!-- ./span12 -->
 			</div>
-
 		</div>
 	</section>
-		
-	<!-- map 
-	<section id="section-map" class="clearfix">
-		<div id="map"></div>
-	</section>
-	-->
+
 	<section id="footer" class="section footer">
 		<div class="container">
 			<div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
@@ -411,45 +378,23 @@
 	<script src="js/jquery.appear.js"></script>
 	<script src="js/validate.js"></script>
 	<script src="js/main.js"></script>
-	<!--
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
-	<script type="text/javascript">
-			// When the window has finished loading create our google map below
-			google.maps.event.addDomListener(window, 'load', init);
+  <script type='text/javascript'>
+    var captchaContainer = null;
+    var loadCaptcha = function() {
+      captchaContainer = grecaptcha.render('captcha_container', {
+        'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
+        'callback' : function(response) {
+          captcha.innerHTML = "<button type='submit' onclick='showLink()' class='btn btn-theme pull-left'>Enviar mensaje y descargar demo</button>";
+        }
+      });
+    };
+    
+    var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGud</a>";
+    function showLink(){
+      captcha.innerHTML = downloadLink;
+    }
+  </script>
 
-		function init() {
-				// Basic options for a simple Google Map
-				// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-				var mapOptions = {
-						// How zoomed in you want the map to start at (always required)
-						zoom: 13,
-
-						// The latitude and longitude to center the map (always required)
-						center: new google.maps.LatLng(-34.4268142,-58.5758452), // Tigre
-						scrollwheel: false,
-						// How you would like to style the map. 
-						// This is where you would paste any style found on Snazzy Maps.
-						styles: [{featureType:"all",
-												elementType:"all",
-												stylers:
-												[
-												{invert_lightness:true  },
-												{saturation:10},
-												{lightness:30},
-												{gamma:0.5},
-												{hue:"#1C705B"}
-												]
-										}]
-				};
-
-				// Get the HTML DOM element that will contain your map 
-				// We are using a div with id="map" seen below in the <body>
-				var mapElement = document.getElementById('map');
-
-				// Create the Google Map using out element and options defined above
-				var map = new google.maps.Map(mapElement, mapOptions);
-		}
-	</script>
-	-->
+  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 </body>
 </html>

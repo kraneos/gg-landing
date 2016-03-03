@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Loading captcha with JavaScript</title>
+    <script type='text/javascript'>
+    var captchaContainer = null;
+    var loadCaptcha = function() {
+      captchaContainer = grecaptcha.render('captcha_container', {
+        'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
+        'callback' : function(response) {
+          captcha.innerHTML = "<button type='submit' class='btn btn-theme pull-left'>Enviar mensaje y descargar demo</button>";
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+      <form action="http://www.codedodle.comxa.com/demos/recaptcha/submit.php" method="POST">
+          <label>Username: <input type="text" name="username" /></label>
+          <small>Are you a robot?</small>
+          <div id="captcha_container"></div>
+          <input type="submit" value="Submit">
+      </form>
+    <span id="captcha" style="margin-left:100px;color:red" ></span>
+      <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
+  </body>
+</html>
