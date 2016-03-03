@@ -383,19 +383,19 @@
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          captcha.innerHTML = "<button type='submit' onclick='showLink()' class='btn btn-theme pull-left'>Enviar mensaje y descargar demo</button>";
-          return true;
+          captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
     
     var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>";
-    function showLink(){
+    
+    function showLink(form){
       captcha.innerHTML = downloadLink;
-     
+      console.log("Aguante Rosario Central!!");
+      return true;
     }
   </script>
-
   <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 </body>
 </html>
