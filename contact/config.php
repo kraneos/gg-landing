@@ -1,4 +1,4 @@
 <?php
 // To
-define("WEBMASTER_EMAIL", 'info@seggu.com.ar');
+define("WEBMASTER_EMAIL", 'egentilemontes@gmail.com');
 ?>

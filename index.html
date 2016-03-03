@@ -312,7 +312,6 @@
 				<div class="col-md-8 col-md-offset-2">
 					<div class="cform" id="contact-form">
             <form action="contact/contact.php" method="post" role="form" class="contactForm">
-						<!--<form action="submit" method="post" role="form" class="contactForm">-->
 							<div class="form-group">
 								
 								<input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:4" data-msg="Por favor ingrese al menos 4 letras" />
@@ -385,13 +384,15 @@
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
           captcha.innerHTML = "<button type='submit' onclick='showLink()' class='btn btn-theme pull-left'>Enviar mensaje y descargar demo</button>";
+          return true;
         }
       });
     };
     
-    var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGud</a>";
+    var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>";
     function showLink(){
       captcha.innerHTML = downloadLink;
+     
     }
   </script>
 
