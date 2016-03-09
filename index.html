@@ -370,6 +370,7 @@
 	<script src="js/jquery.appear.js"></script>
 	<script src="js/validate.js"></script>
 	<script src="js/main.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
   <script type='text/javascript'>
     var captchaContainer = null;
     var loadCaptcha = function() {
@@ -384,11 +385,15 @@
     var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>";
     
     function showLink(form){
+      // valida el form
+      
+      // valida el envío, "mensaje enviado"
+
+      // muestra el enlace
       captcha.innerHTML = downloadLink;
       console.log("Aguante Rosario Central!!");
       return true;
     }
   </script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 </body>
 </html>
