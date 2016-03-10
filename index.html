@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<title>SeGGu</title>
+	<title>SeGGu, software para gestionar pólizas de seguro en tu telefono celular, en cualquier lado</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="keywords" content="software para seguros, Programa para seguros, gestión de seguros, aplicación para seguros, productor de seguros, asesor de seguros, SSN, multicompañía seguros" />
-	<meta name="description" content="software para seguros">
+	<meta name="description" content="software para gestionar pólizas de seguro en tu telefono celular, en cualquier lado">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" /> 
 	<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
@@ -13,6 +13,15 @@
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="skin/default.css">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-61138579-2', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
 <body>
@@ -323,8 +332,10 @@
 							</div>
 
               <div id="captcha_container"></div>
-							<span id="captcha" style="margin-left:100px;color:red" ></span>
-
+							<span id="captcha" style="margin-left:100px;color:red" >
+              
+              <button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button> 
+                </span>
 						</form>
 
 						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!</div>
@@ -370,14 +381,15 @@
 	<script src="js/jquery.appear.js"></script>
 	<script src="js/validate.js"></script>
 	<script src="js/main.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
   <script type='text/javascript'>
     var captchaContainer = null;
+    var captcha = document.getElementById("captcha");
     var loadCaptcha = function() {
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
+          console.log(response);
+          //captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
@@ -392,17 +404,10 @@
       // muestra el enlace
       captcha.innerHTML = downloadLink;
       console.log("Aguante Rosario Central!!");
-      return true;
+      return false;
     }
   </script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 
-    ga('create', 'UA-61138579-2', 'auto');
-    ga('send', 'pageview');
-  </script>
 </body>
 </html>
