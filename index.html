@@ -334,11 +334,13 @@
               <div id="captcha_container"></div>
 							<span id="captcha" style="margin-left:100px;color:red" >
               
-              <button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button> 
+              <button type='submit'  class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button> 
                 </span>
 						</form>
 
-						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!</div>
+						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!
+            <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
+            </div>
 					</div>
 				</div>
 			</div>
@@ -389,7 +391,8 @@
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
           console.log(response);
-          //captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
+          //$('form.contactForm').submit();
+          captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
