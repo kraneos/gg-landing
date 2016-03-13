@@ -286,7 +286,7 @@
 
 				<div class="col-md-3">
 					<div class="team-member">
-						<figure class="member-photo"><img src="img/team/member4.jpg" alt="" /></figure>
+						<figure class="member-photo"><img src="img/team/Fabio.jpg" alt="" /></figure>
 						<div class="team-detail">
 							<h4>Fabio</h4>
 							<span>Desarrollo</span>
@@ -314,9 +314,9 @@
 				<div class="col-md-8 col-md-offset-2">
 					<div class="cform" id="contact-form">
             <form action="contact/contact.php" method="post" role="form" class="contactForm">
-							
-              <div class="form-group">	
-								<input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:4" data-msg="Por favor ingrese al menos 4 letras" />
+							<div class="form-group">
+								
+								<input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:3" data-msg="Por favor ingrese al menos 3 letras" />
 								<div class="validation"></div>
 							</div>
               
@@ -327,17 +327,16 @@
 
 							<div class="form-group">
 								<label for="message">Mensaje</label>
-								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor"></textarea>
+								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor" placeholder="(ejemplo) Hola, quiero probar el software."></textarea>
 								<div class="validation"></div>
 							</div>
-              
-						</form>
-            
-            <div id="captcha_container"></div>
-            <span id="captcha" style="margin-left:100px;color:red" >
 
+						</form>
+						<div id="captcha_container"></div>
+						<span id="captcha" style="margin-left:100px;color:red" ></span>
 						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!
-            <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
+						  <br>
+              <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
             </div>
 					</div>
 				</div>
@@ -390,13 +389,12 @@
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
+          captcha.innerHTML = "<button id='send-button' type='submit' onclick='showLink()' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
-    
-    function showLink(form){
-      $('form.contactForm').submit()
+    function showLink(){
+      $('form.contactForm').submit();
     }
     
   </script>

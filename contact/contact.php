@@ -11,7 +11,6 @@ if($post)
 {
 	$name = stripslashes($_POST['name']);
 	$email = trim($_POST['email']);
-	//$subject = stripslashes($_POST['subject']);
 	$subject = 'desde seggu.com.ar';	
 	$message = stripslashes($_POST['message']);
 
