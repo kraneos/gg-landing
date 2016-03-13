@@ -7,70 +7,70 @@
  * http://markdalgleish.mit-license.org
  */
 
-;(function($, window, document, undefined) {
+ ;(function($, window, document, undefined) {
 
-	var pluginName = 'stellar',
-		defaults = {
-			scrollProperty: 'scroll',
-			positionProperty: 'position',
-			horizontalScrolling: true,
-			verticalScrolling: true,
-			horizontalOffset: 0,
-			verticalOffset: 0,
-			responsive: false,
-			parallaxBackgrounds: true,
-			parallaxElements: true,
-			hideDistantElements: true,
-			hideElement: function($elem) { $elem.hide(); },
-			showElement: function($elem) { $elem.show(); }
-		},
+ 	var pluginName = 'stellar',
+ 	defaults = {
+ 		scrollProperty: 'scroll',
+ 		positionProperty: 'position',
+ 		horizontalScrolling: true,
+ 		verticalScrolling: true,
+ 		horizontalOffset: 0,
+ 		verticalOffset: 0,
+ 		responsive: false,
+ 		parallaxBackgrounds: true,
+ 		parallaxElements: true,
+ 		hideDistantElements: true,
+ 		hideElement: function($elem) { $elem.hide(); },
+ 		showElement: function($elem) { $elem.show(); }
+ 	},
 
-		scrollProperty = {
-			scroll: {
-				getLeft: function($elem) { return $elem.scrollLeft(); },
-				setLeft: function($elem, val) { $elem.scrollLeft(val); },
+ 	scrollProperty = {
+ 		scroll: {
+ 			getLeft: function($elem) { return $elem.scrollLeft(); },
+ 			setLeft: function($elem, val) { $elem.scrollLeft(val); },
 
-				getTop: function($elem) { return $elem.scrollTop();	},
-				setTop: function($elem, val) { $elem.scrollTop(val); }
-			},
-			position: {
-				getLeft: function($elem) { return parseInt($elem.css('left'), 10) * -1; },
-				getTop: function($elem) { return parseInt($elem.css('top'), 10) * -1; }
-			},
-			margin: {
-				getLeft: function($elem) { return parseInt($elem.css('margin-left'), 10) * -1; },
-				getTop: function($elem) { return parseInt($elem.css('margin-top'), 10) * -1; }
-			},
-			transform: {
-				getLeft: function($elem) {
-					var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
-					return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[4], 10) * -1 : 0);
-				},
-				getTop: function($elem) {
-					var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
-					return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[5], 10) * -1 : 0);
-				}
-			}
-		},
+ 			getTop: function($elem) { return $elem.scrollTop();	},
+ 			setTop: function($elem, val) { $elem.scrollTop(val); }
+ 		},
+ 		position: {
+ 			getLeft: function($elem) { return parseInt($elem.css('left'), 10) * -1; },
+ 			getTop: function($elem) { return parseInt($elem.css('top'), 10) * -1; }
+ 		},
+ 		margin: {
+ 			getLeft: function($elem) { return parseInt($elem.css('margin-left'), 10) * -1; },
+ 			getTop: function($elem) { return parseInt($elem.css('margin-top'), 10) * -1; }
+ 		},
+ 		transform: {
+ 			getLeft: function($elem) {
+ 				var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
+ 				return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[4], 10) * -1 : 0);
+ 			},
+ 			getTop: function($elem) {
+ 				var computedTransform = getComputedStyle($elem[0])[prefixedTransform];
+ 				return (computedTransform !== 'none' ? parseInt(computedTransform.match(/(-?[0-9]+)/g)[5], 10) * -1 : 0);
+ 			}
+ 		}
+ 	},
 
-		positionProperty = {
-			position: {
-				setLeft: function($elem, left) { $elem.css('left', left); },
-				setTop: function($elem, top) { $elem.css('top', top); }
-			},
-			transform: {
-				setPosition: function($elem, left, startingLeft, top, startingTop) {
-					$elem[0].style[prefixedTransform] = 'translate3d(' + (left - startingLeft) + 'px, ' + (top - startingTop) + 'px, 0)';
-				}
-			}
-		},
+ 	positionProperty = {
+ 		position: {
+ 			setLeft: function($elem, left) { $elem.css('left', left); },
+ 			setTop: function($elem, top) { $elem.css('top', top); }
+ 		},
+ 		transform: {
+ 			setPosition: function($elem, left, startingLeft, top, startingTop) {
+ 				$elem[0].style[prefixedTransform] = 'translate3d(' + (left - startingLeft) + 'px, ' + (top - startingTop) + 'px, 0)';
+ 			}
+ 		}
+ 	},
 
 		// Returns a function which adds a vendor prefix to any CSS property name
 		vendorPrefix = (function() {
 			var prefixes = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/,
-				style = $('script')[0].style,
-				prefix = '',
-				prop;
+			style = $('script')[0].style,
+			prefix = '',
+			prop;
 
 			for (prop in style) {
 				if (prefixes.test(prop)) {
@@ -101,19 +101,19 @@
 			function($elem, x, y) {
 				$elem.css('background-position', x + ' ' + y);
 			}
-		),
+			),
 
 		getBackgroundPosition = (supportsBackgroundPositionXY ?
 			function($elem) {
 				return [
-					$elem.css('background-position-x'),
-					$elem.css('background-position-y')
+				$elem.css('background-position-x'),
+				$elem.css('background-position-y')
 				];
 			} :
 			function($elem) {
 				return $elem.css('background-position').split(' ');
 			}
-		),
+			),
 
 		requestAnimFrame = (
 			window.requestAnimationFrame       ||
@@ -124,70 +124,70 @@
 			function(callback) {
 				setTimeout(callback, 1000 / 60);
 			}
-		);
+			);
 
-	function Plugin(element, options) {
-		this.element = element;
-		this.options = $.extend({}, defaults, options);
+		function Plugin(element, options) {
+			this.element = element;
+			this.options = $.extend({}, defaults, options);
 
-		this._defaults = defaults;
-		this._name = pluginName;
+			this._defaults = defaults;
+			this._name = pluginName;
 
-		this.init();
-	}
+			this.init();
+		}
 
-	Plugin.prototype = {
-		init: function() {
-			this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
+		Plugin.prototype = {
+			init: function() {
+				this.options.name = pluginName + '_' + Math.floor(Math.random() * 1e9);
 
-			this._defineElements();
-			this._defineGetters();
-			this._defineSetters();
-			this._handleWindowLoadAndResize();
-			this._detectViewport();
+				this._defineElements();
+				this._defineGetters();
+				this._defineSetters();
+				this._handleWindowLoadAndResize();
+				this._detectViewport();
 
-			this.refresh({ firstLoad: true });
+				this.refresh({ firstLoad: true });
 
-			if (this.options.scrollProperty === 'scroll') {
-				this._handleScrollEvent();
-			} else {
-				this._startAnimationLoop();
-			}
-		},
-		_defineElements: function() {
-			if (this.element === document.body) this.element = window;
-			this.$scrollElement = $(this.element);
-			this.$element = (this.element === window ? $('body') : this.$scrollElement);
-			this.$viewportElement = (this.options.viewportElement !== undefined ? $(this.options.viewportElement) : (this.$scrollElement[0] === window || this.options.scrollProperty === 'scroll' ? this.$scrollElement : this.$scrollElement.parent()) );
-		},
-		_defineGetters: function() {
-			var self = this,
+				if (this.options.scrollProperty === 'scroll') {
+					this._handleScrollEvent();
+				} else {
+					this._startAnimationLoop();
+				}
+			},
+			_defineElements: function() {
+				if (this.element === document.body) this.element = window;
+				this.$scrollElement = $(this.element);
+				this.$element = (this.element === window ? $('body') : this.$scrollElement);
+				this.$viewportElement = (this.options.viewportElement !== undefined ? $(this.options.viewportElement) : (this.$scrollElement[0] === window || this.options.scrollProperty === 'scroll' ? this.$scrollElement : this.$scrollElement.parent()) );
+			},
+			_defineGetters: function() {
+				var self = this,
 				scrollPropertyAdapter = scrollProperty[self.options.scrollProperty];
 
-			this._getScrollLeft = function() {
-				return scrollPropertyAdapter.getLeft(self.$scrollElement);
-			};
+				this._getScrollLeft = function() {
+					return scrollPropertyAdapter.getLeft(self.$scrollElement);
+				};
 
-			this._getScrollTop = function() {
-				return scrollPropertyAdapter.getTop(self.$scrollElement);
-			};
-		},
-		_defineSetters: function() {
-			var self = this,
+				this._getScrollTop = function() {
+					return scrollPropertyAdapter.getTop(self.$scrollElement);
+				};
+			},
+			_defineSetters: function() {
+				var self = this,
 				scrollPropertyAdapter = scrollProperty[self.options.scrollProperty],
 				positionPropertyAdapter = positionProperty[self.options.positionProperty],
 				setScrollLeft = scrollPropertyAdapter.setLeft,
 				setScrollTop = scrollPropertyAdapter.setTop;
 
-			this._setScrollLeft = (typeof setScrollLeft === 'function' ? function(val) {
-				setScrollLeft(self.$scrollElement, val);
-			} : $.noop);
+				this._setScrollLeft = (typeof setScrollLeft === 'function' ? function(val) {
+					setScrollLeft(self.$scrollElement, val);
+				} : $.noop);
 
-			this._setScrollTop = (typeof setScrollTop === 'function' ? function(val) {
-				setScrollTop(self.$scrollElement, val);
-			} : $.noop);
+				this._setScrollTop = (typeof setScrollTop === 'function' ? function(val) {
+					setScrollTop(self.$scrollElement, val);
+				} : $.noop);
 
-			this._setPosition = positionPropertyAdapter.setPosition ||
+				this._setPosition = positionPropertyAdapter.setPosition ||
 				function($elem, left, startingLeft, top, startingTop) {
 					if (self.options.horizontalScrolling) {
 						positionPropertyAdapter.setLeft($elem, left, startingLeft);
@@ -197,46 +197,46 @@
 						positionPropertyAdapter.setTop($elem, top, startingTop);
 					}
 				};
-		},
-		_handleWindowLoadAndResize: function() {
-			var self = this,
+			},
+			_handleWindowLoadAndResize: function() {
+				var self = this,
 				$window = $(window);
 
-			if (self.options.responsive) {
-				$window.bind('load.' + this.name, function() {
-					self.refresh();
-				});
-			}
-
-			$window.bind('resize.' + this.name, function() {
-				self._detectViewport();
-
 				if (self.options.responsive) {
-					self.refresh();
+					$window.bind('load.' + this.name, function() {
+						self.refresh();
+					});
 				}
-			});
-		},
-		refresh: function(options) {
-			var self = this,
+
+				$window.bind('resize.' + this.name, function() {
+					self._detectViewport();
+
+					if (self.options.responsive) {
+						self.refresh();
+					}
+				});
+			},
+			refresh: function(options) {
+				var self = this,
 				oldLeft = self._getScrollLeft(),
 				oldTop = self._getScrollTop();
 
-			if (!options || !options.firstLoad) {
-				this._reset();
-			}
+				if (!options || !options.firstLoad) {
+					this._reset();
+				}
 
-			this._setScrollLeft(0);
-			this._setScrollTop(0);
+				this._setScrollLeft(0);
+				this._setScrollTop(0);
 
-			this._setOffsets();
-			this._findParticles();
-			this._findBackgrounds();
+				this._setOffsets();
+				this._findParticles();
+				this._findBackgrounds();
 
 			// Fix for WebKit background rendering bug
 			if (options && options.firstLoad && /WebKit/.test(navigator.userAgent)) {
 				$(window).load(function() {
 					var oldLeft = self._getScrollLeft(),
-						oldTop = self._getScrollTop();
+					oldTop = self._getScrollTop();
 
 					self._setScrollLeft(oldLeft + 1);
 					self._setScrollTop(oldTop + 1);
@@ -251,7 +251,7 @@
 		},
 		_detectViewport: function() {
 			var viewportOffsets = this.$viewportElement.offset(),
-				hasOffsets = viewportOffsets !== null && viewportOffsets !== undefined;
+			hasOffsets = viewportOffsets !== null && viewportOffsets !== undefined;
 
 			this.viewportWidth = this.$viewportElement.width();
 			this.viewportHeight = this.$viewportElement.height();
@@ -261,8 +261,8 @@
 		},
 		_findParticles: function() {
 			var self = this,
-				scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop();
+			scrollLeft = this._getScrollLeft(),
+			scrollTop = this._getScrollTop();
 
 			if (this.particles !== undefined) {
 				for (var i = this.particles.length - 1; i >= 0; i--) {
@@ -276,19 +276,19 @@
 
 			this.$element.find('[data-stellar-ratio]').each(function(i) {
 				var $this = $(this),
-					horizontalOffset,
-					verticalOffset,
-					positionLeft,
-					positionTop,
-					marginLeft,
-					marginTop,
-					$offsetParent,
-					offsetLeft,
-					offsetTop,
-					parentOffsetLeft = 0,
-					parentOffsetTop = 0,
-					tempParentOffsetLeft = 0,
-					tempParentOffsetTop = 0;
+				horizontalOffset,
+				verticalOffset,
+				positionLeft,
+				positionTop,
+				marginLeft,
+				marginTop,
+				$offsetParent,
+				offsetLeft,
+				offsetTop,
+				parentOffsetLeft = 0,
+				parentOffsetTop = 0,
+				tempParentOffsetLeft = 0,
+				tempParentOffsetTop = 0;
 
 				// Ensure this element isn't already part of another scrolling element
 				if (!$this.data('stellar-elementIsActive')) {
@@ -360,9 +360,9 @@
 		},
 		_findBackgrounds: function() {
 			var self = this,
-				scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop(),
-				$backgroundElements;
+			scrollLeft = this._getScrollLeft(),
+			scrollTop = this._getScrollTop(),
+			$backgroundElements;
 
 			this.backgrounds = [];
 
@@ -371,25 +371,25 @@
 			$backgroundElements = this.$element.find('[data-stellar-background-ratio]');
 
 			if (this.$element.data('stellar-background-ratio')) {
-                $backgroundElements = $backgroundElements.add(this.$element);
+				$backgroundElements = $backgroundElements.add(this.$element);
 			}
 
 			$backgroundElements.each(function() {
 				var $this = $(this),
-					backgroundPosition = getBackgroundPosition($this),
-					horizontalOffset,
-					verticalOffset,
-					positionLeft,
-					positionTop,
-					marginLeft,
-					marginTop,
-					offsetLeft,
-					offsetTop,
-					$offsetParent,
-					parentOffsetLeft = 0,
-					parentOffsetTop = 0,
-					tempParentOffsetLeft = 0,
-					tempParentOffsetTop = 0;
+				backgroundPosition = getBackgroundPosition($this),
+				horizontalOffset,
+				verticalOffset,
+				positionLeft,
+				positionTop,
+				marginLeft,
+				marginTop,
+				offsetLeft,
+				offsetTop,
+				$offsetParent,
+				parentOffsetLeft = 0,
+				parentOffsetTop = 0,
+				tempParentOffsetLeft = 0,
+				tempParentOffsetTop = 0;
 
 				// Ensure this element isn't already part of another scrolling element
 				if (!$this.data('stellar-backgroundIsActive')) {
@@ -455,10 +455,10 @@
 		},
 		_reset: function() {
 			var particle,
-				startingPositionLeft,
-				startingPositionTop,
-				background,
-				i;
+			startingPositionLeft,
+			startingPositionTop,
+			background,
+			i;
 
 			for (i = this.particles.length - 1; i >= 0; i--) {
 				particle = this.particles[i];
@@ -490,7 +490,7 @@
 		},
 		_setOffsets: function() {
 			var self = this,
-				$window = $(window);
+			$window = $(window);
 
 			$window.unbind('resize.horizontal-' + this.name).unbind('resize.vertical-' + this.name);
 
@@ -514,21 +514,21 @@
 		},
 		_repositionElements: function() {
 			var scrollLeft = this._getScrollLeft(),
-				scrollTop = this._getScrollTop(),
-				horizontalOffset,
-				verticalOffset,
-				particle,
-				fixedRatioOffset,
-				background,
-				bgLeft,
-				bgTop,
-				isVisibleVertical = true,
-				isVisibleHorizontal = true,
-				newPositionLeft,
-				newPositionTop,
-				newOffsetLeft,
-				newOffsetTop,
-				i;
+			scrollTop = this._getScrollTop(),
+			horizontalOffset,
+			verticalOffset,
+			particle,
+			fixedRatioOffset,
+			background,
+			bgLeft,
+			bgTop,
+			isVisibleVertical = true,
+			isVisibleHorizontal = true,
+			newPositionLeft,
+			newPositionTop,
+			newOffsetLeft,
+			newOffsetTop,
+			i;
 
 			// First check that the scroll position or container size has changed
 			if (this.currentScrollLeft === scrollLeft && this.currentScrollTop === scrollTop && this.currentWidth === this.viewportWidth && this.currentHeight === this.viewportHeight) {
@@ -597,7 +597,7 @@
 		},
 		_handleScrollEvent: function() {
 			var self = this,
-				ticking = false;
+			ticking = false;
 
 			var update = function() {
 				self._repositionElements();

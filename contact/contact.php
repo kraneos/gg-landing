@@ -15,7 +15,7 @@ if($post)
 	$subject = 'desde seggu.com.ar';	
 	$message = stripslashes($_POST['message']);
 
-	$error = '';
+	//$error = '';
 
 	if(!$error)
 	{

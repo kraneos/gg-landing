@@ -314,13 +314,13 @@
 				<div class="col-md-8 col-md-offset-2">
 					<div class="cform" id="contact-form">
             <form action="contact/contact.php" method="post" role="form" class="contactForm">
-							<div class="form-group">
-								
+							
+              <div class="form-group">	
 								<input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:4" data-msg="Por favor ingrese al menos 4 letras" />
 								<div class="validation"></div>
 							</div>
-							<div class="form-group">
-								
+              
+							<div class="form-group">								
 								<input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
 								<div class="validation"></div>
 							</div>
@@ -330,13 +330,11 @@
 								<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor"></textarea>
 								<div class="validation"></div>
 							</div>
-
-              <div id="captcha_container"></div>
-							<span id="captcha" style="margin-left:100px;color:red" >
               
-              <button type='submit'  class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button> 
-                </span>
 						</form>
+            
+            <div id="captcha_container"></div>
+            <span id="captcha" style="margin-left:100px;color:red" >
 
 						<div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!
             <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
@@ -384,31 +382,23 @@
 	<script src="js/validate.js"></script>
 	<script src="js/main.js"></script>
   <script type='text/javascript'>
+    
     var captchaContainer = null;
     var captcha = document.getElementById("captcha");
+
     var loadCaptcha = function() {
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          console.log(response);
-          //$('form.contactForm').submit();
           captcha.innerHTML = "<button type='submit' onclick='showLink(this)' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
     
-    var downloadLink = "<a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>";
-    
     function showLink(form){
-      // valida el form
-      
-      // valida el envío, "mensaje enviado"
-
-      // muestra el enlace
-      captcha.innerHTML = downloadLink;
-      console.log("Aguante Rosario Central!!");
-      return false;
+      $('form.contactForm').submit()
     }
+    
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 
