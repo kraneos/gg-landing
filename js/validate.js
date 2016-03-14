@@ -79,7 +79,7 @@ jQuery(document).ready(function ($) {
       }
     });
     
-    console.log(ferror, this);
+    console.log(ferror);
     if (ferror) {
       return false;
     } else {
