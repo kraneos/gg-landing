@@ -1,32 +1,16 @@
 <?php
-/*
-Credits: Bit Repository
-URL: http://www.bitrepository.com/
-*/
-include 'config.php';
-error_reporting (E_ALL ^ E_NOTICE);
-$post = (!empty($_POST)) ? true : false;
+# Include the Autoloader (see "Libraries" for install instructions)
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
 
-if($post)
-{
-	$name = stripslashes($_POST['name']);
-	$email = trim($_POST['email']);
-	$subject = 'desde seggu.com.ar';	
-	$message = stripslashes($_POST['message']);
+# Instantiate the client.
+$mgClient = new Mailgun('key-a0a263f6979d413bd9b29480a868ff8e');
+$domain = "sandboxaf43b0522493450cba0a2f1267ae05eb.mailgun.org";
 
-	//$error = '';
-
-	if(!$error)
-	{
-		$mail = mail(WEBMASTER_EMAIL, $subject, $message,
-		     "From: ".$name." <".$email.">\r\n"
-		    ."Reply-To: ".$email."\r\n"
-		    ."X-Mailer: PHP/" . phpversion());
-
-		if($mail)
-		{
-		echo 'OK';
-		}
-	}
-}
+# Make the call to the client.
+$result = $mgClient->sendMessage("$domain",
+  array('from'    => 'Mailgun Sandbox <postmaster@sandboxaf43b0522493450cba0a2f1267ae05eb.mailgun.org>',
+  'to'      => 'Ezequiel <egentilemontes@gmail.com>',
+  'subject' => 'Hello Ezequiel',
+  'text'    => 'Congratulations Ezequiel, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));  
 ?>

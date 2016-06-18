@@ -90,19 +90,19 @@ jQuery(document).ready(function ($) {
       type: "POST",
       url: "contact/contact.php",
       data: str,
-			error: function (request, status, error) {
+      error: function (request, status, error) {
         alert(request.responseText);
-			},
+      },
       success: function (msg) {
-				console.log(msg);
-				if (msg === 'OK') {
-				  $("#sendmessage").addClass("show");
-				  $('#send-button').prop('disabled', true);
+		console.log(msg);
+		if (msg === 'OK') {
+		  $("#sendmessage").addClass("show");
+		  $('#send-button').prop('disabled', true);
         } else {
           $("#sendmessage").removeClass("show");
         }		
         $(this).html(msg);
-			}
+	  }
     });
     return false;
   });
