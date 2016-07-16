@@ -7,7 +7,7 @@
   <meta name="keywords" content="seggu, polizas, software para seguros, Programa para seguros, gestión de seguros, aplicación para seguros, productor de seguros, asesor de seguros, SSN, multicompañía seguros" />
   <meta name="description" content="software para gestionar pólizas de seguro en tu telefono celular, en cualquier lado">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" /> 
+  <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
   <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-theme.css">
@@ -22,6 +22,12 @@
     ga('create', 'UA-61138579-2', 'auto');
     ga('send', 'pageview');
   </script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+     (function(){
+        emailjs.init("user_uxSBgp47fOtfj5HMBjzl5");
+     })();
+</script>
 </head>
 
 <body>
@@ -46,14 +52,14 @@
   </div>
 
   <section class="featured">
-    <div class="container"> 
+    <div class="container">
       <div class="row mar-bot40">
         <div class="col-md-6 col-md-offset-3">
           <div class="align-center">
             <i class="fa fa-umbrella fa-5x mar-bot20"></i>
             <h2 class="slogan">Bienvenido a SeGGu</h2>
             <p>Software de gestión para Organizadores y
-            Productores de seguros que venden multicompañía.</p>  
+            Productores de seguros que venden multicompañía.</p>
           </div>
         </div>
       </div>
@@ -62,7 +68,7 @@
 
   <!-- services -->
   <section id="section-services" class="section pad-bot30 bg-white">
-    <div class="container"> 
+    <div class="container">
       <div class="row mar-bot40">
         <div class="col-lg-4" >
           <div class="align-center">
@@ -113,14 +119,14 @@
             <p>Rúbricas y exigencias de la SSN.</p>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   </section>
 
   <!-- spacer section:testimonial -->
   <section id="testimonials" class="section" data-stellar-background-ratio="0.5">
     <div class="container">
-      <div class="row">  
+      <div class="row">
         <div class="col-lg-12">
           <div class="align-center">
             <div class="testimonial pad-top40 pad-bot40 clearfix">
@@ -130,8 +136,8 @@
             </div>
           </div>
         </div>
-      </div>  
-    </div>  
+      </div>
+    </div>
   </section>
 
   <!-- section works -->
@@ -168,7 +174,7 @@
                     <div class="folio-info">
                       <h5><a href="#">Distribución jerárquica</a></h5>
                       <a href="img/portfolio/Distrib_jerárquica.png" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </article>
@@ -180,7 +186,7 @@
                     <div class="folio-info">
                       <h5><a href="#">Pólizas</a></h5>
                       <a href="img/portfolio/Pólizas.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </article>
@@ -192,7 +198,7 @@
                     <div class="folio-info">
                       <h5><a href="#">Compañías</a></h5>
                       <a href="img/portfolio/Compañías_EDIT.png" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </article>
@@ -204,7 +210,7 @@
                     <div class="folio-info">
                       <h5><a href="#">En un smartphone</a></h5>
                       <a href="img/portfolio/mobile.png" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </article>
@@ -216,7 +222,7 @@
                     <div class="folio-info">
                       <h5><a href="#">En todos los sistemas operativos</a></h5>
                       <a href="img/portfolio/all-os.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
-                    </div>                      
+                    </div>
                   </div>
                 </div>
               </article>
@@ -236,8 +242,8 @@
       <div class="align-center pad-top40 pad-bot40">
         <blockquote class="bigquote color-white">Muy contento con el producto porque nos redujo costos operativos por su facilidad de uso</blockquote>
         <p class="color-white">Seguros SA, Virreyes, Bs As</p>
-      </div>      
-    </div>  
+      </div>
+    </div>
   </section>
 
   <!-- about -->
@@ -315,12 +321,12 @@
           <div class="cform" id="contact-form">
             <form action="contact/contact.php" method="post" role="form" class="contactForm">
               <div class="form-group">
-                
+
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:3" data-msg="Por favor ingrese al menos 3 letras" />
                 <div class="validation"></div>
               </div>
-              
-              <div class="form-group">                
+
+              <div class="form-group">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
                 <div class="validation"></div>
               </div>
@@ -354,7 +360,7 @@
             <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
             <!-- <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
             <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li> -->
-          </ul>       
+          </ul>
         </div>
       </div>
 
@@ -364,7 +370,7 @@
     </div>
   </section>
 
-  <a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a> 
+  <a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>
 
   <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
   <script src="js/jquery.js"></script>
@@ -373,7 +379,7 @@
   <script src="js/jquery.isotope.min.js"></script>
   <script src="js/jquery.nicescroll.min.js"></script>
   <script src="js/fancybox/jquery.fancybox.pack.js"></script>
-  <script src="js/skrollr.min.js"></script>   
+  <script src="js/skrollr.min.js"></script>
   <script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
   <script src="js/jquery.localscroll-1.2.7-min.js"></script>
   <script src="js/stellar.js"></script>
@@ -381,7 +387,7 @@
   <script src="js/validate.js"></script>
   <script src="js/main.js"></script>
   <script type='text/javascript'>
-    
+
     var captchaContainer = null;
     var captcha = document.getElementById("captcha");
 
@@ -395,8 +401,8 @@
     };
     function showLink(){
       $('form.contactForm').submit();
+      emailjs.send("default_service","template_OBtygIGt",{name: "James", notes: "Check this out!"});
     }
-    
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 
