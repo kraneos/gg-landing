@@ -27,30 +27,34 @@
      (function(){
         emailjs.init("user_uxSBgp47fOtfj5HMBjzl5");
      })();
-</script>
+  </script>
+  <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
 </head>
 
 <body>
-  <section id="header" class="appear"></section>
-  <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="fa fa-bars color-white"></span>
-        </button>
-        <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">SeGGu</a></h1>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="#section-about">Nosotros</a></li>
-        <li><a href="#section-works">Capturas</a></li>
-        <li><a href="#section-contact">Contacto</a></li>
-        </ul>
+  <!-- header -->
+  <section id="header" class="appear">
+    <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="fa fa-bars color-white"></span>
+          </button>
+          <h1><a class="navbar-brand" href="index.html" data-0="line-height:90px;" data-300="line-height:50px;">SeGGu</a></h1>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+          <li class="active"><a href="index.html">Inicio</a></li>
+          <li><a href="#section-about">Nosotros</a></li>
+          <li><a href="#section-works">Capturas</a></li>
+          <li><a href="#section-contact">Contacto</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
+  <!-- featured -->
   <section class="featured">
     <div class="container">
       <div class="row mar-bot40">
@@ -319,24 +323,24 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="cform" id="contact-form">
-            <form action="contact/contact.php" method="post" role="form" class="contactForm">
+            <form onsubmit="emailjs.sendForm('default_service', 'template_OBtygIGt', this); return false;" method="post" role="form" class="contactForm">
               <div class="form-group">
 
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:3" data-msg="Por favor ingrese al menos 3 letras" />
+                <input type="text" name="from_name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:3" data-msg="Por favor ingrese al menos 3 letras" />
                 <div class="validation"></div>
               </div>
 
               <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
+                <input type="email" class="form-control" name="reply_to" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
                 <div class="validation"></div>
               </div>
 
               <div class="form-group">
-                <label for="message">Mensaje</label>
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor" placeholder="(ejemplo) Hola, quiero probar el software."></textarea>
+                <label for="message_html">Mensaje</label>
+                <textarea class="form-control" name="message_html" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor" placeholder="(ejemplo) Hola, quiero probar el software."></textarea>
                 <div class="validation"></div>
               </div>
-
+              <!-- <div class="g-recaptcha" data-sitekey="6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E"></div> -->
             </form>
             <div id="captcha_container"></div>
             <span id="captcha" style="margin-left:100px;color:red" ></span>
@@ -350,6 +354,7 @@
     </div>
   </section>
 
+  <!-- footer -->
   <section id="footer" class="section footer">
     <div class="container">
       <div class="row animated opacity mar-bot20" data-andown="fadeIn" data-animation="animation">
@@ -401,7 +406,6 @@
     };
     function showLink(){
       $('form.contactForm').submit();
-      emailjs.send("default_service","template_OBtygIGt",{name: "James", notes: "Check this out!"});
     }
   </script>
   <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
