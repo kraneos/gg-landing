@@ -755,7 +755,7 @@ nav#filter a {
 	font-size:13px;
 }
 
-#sendmessage {
+#successmsg {
 	border:1px solid #fff;
 	display:none;
 	text-align:center;
@@ -765,7 +765,7 @@ nav#filter a {
 	margin-bottom:30px;
 }
 
-#sendmessage.show,.show  {
+#successmsg.show,.show  {
 	display:block;
 }
 

@@ -8,6 +8,7 @@ jQuery(document).ready(function ($) {
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
     f.children('input').each(function () { // run all inputs
       var i = $(this),//current input
         rule = i.attr('data-rule');
@@ -49,6 +50,7 @@ jQuery(document).ready(function ($) {
         )).show('blind');
       }
     });
+
     f.children('textarea').each(function () { // run all inputs
 
       var i = $(this); // current input
@@ -83,28 +85,10 @@ jQuery(document).ready(function ($) {
     if (ferror) {
       return false;
     } else {
-      var str = $(this).serialize();
+      $("#successmsg").addClass("show");
+      $('#send-button').prop('disabled', true);
+      emailjs.sendForm('default_service', 'template_OBtygIGt', this);
+      return false;
     }
-    console.log(str);
-    /*$.ajax({
-      type: "POST",
-      url: "contact/contact.php",
-      data: str,
-      error: function (request, status, error) {
-        alert(request.responseText);
-      },
-      success: function (msg) {
-		    console.log(msg);
-		    if (msg === 'OK') {
-		      $("#sendmessage").addClass("show");
-		      $('#send-button').prop('disabled', true);
-        } else {
-          $("#sendmessage").removeClass("show");
-        }
-        $(this).html(msg);
-	     }
-    });*/
-    
-    return false;
   });
 });

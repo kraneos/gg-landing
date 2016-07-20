@@ -28,7 +28,6 @@
         emailjs.init("user_uxSBgp47fOtfj5HMBjzl5");
      })();
   </script>
-  <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
 </head>
 
 <body>
@@ -323,7 +322,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="cform" id="contact-form">
-            <form onsubmit="emailjs.sendForm('default_service', 'template_OBtygIGt', this); return false;" method="post" role="form" class="contactForm">
+            <form method="post" role="form" class="contactForm">
               <div class="form-group">
 
                 <input type="text" name="from_name" class="form-control" id="name" placeholder="Nombre" data-rule="maxlen:3" data-msg="Por favor ingrese al menos 3 letras" />
@@ -340,11 +339,10 @@
                 <textarea class="form-control" name="message_html" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor" placeholder="(ejemplo) Hola, quiero probar el software."></textarea>
                 <div class="validation"></div>
               </div>
-              <!-- <div class="g-recaptcha" data-sitekey="6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E"></div> -->
             </form>
             <div id="captcha_container"></div>
             <span id="captcha" style="margin-left:100px;color:red" ></span>
-            <div id="sendmessage">Mensaje enviado con éxito. ¡Gracias!
+            <div id="successmsg">Mensaje enviado con éxito. ¡Gracias!
               <br>
               <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
             </div>
@@ -400,7 +398,7 @@
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          captcha.innerHTML = "<button id='send-button' type='submit' onclick='showLink()' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
+          captcha.innerHTML = "<button id='send-button' onCLick='showLink()' type='submit' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
         }
       });
     };
