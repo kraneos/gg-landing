@@ -315,7 +315,7 @@
         <div class="col-md-offset-3 col-md-6">
           <div class="section-header">
             <h2 class="section-heading animated" data-animation="bounceInUp">Contáctenos</h2>
-            <p>Para probar SeGGu por 15 días, déjenos su email y tilde en el captcha para demostrar que no es un robot antes de apretar [enviar], aparecerá un enlace para descargar el instalador.</p>
+            <p>Para probar SeGGu, te enviaremos a tu email un enlace para descargar el instalador.</p>
           </div>
         </div>
       </div>
@@ -330,22 +330,14 @@
               </div>
 
               <div class="form-group">
-                <input type="email" class="form-control" name="reply_to" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
+                <input type="email" class="form-control" name="client_email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingrese un email válido" />
                 <div class="validation"></div>
               </div>
 
-              <div class="form-group">
-                <label for="message_html">Mensaje</label>
-                <textarea class="form-control" name="message_html" rows="5" data-rule="required" data-msg="Ingrese su mensaje por favor" placeholder="(ejemplo) Hola, quiero probar el software."></textarea>
-                <div class="validation"></div>
-              </div>
             </form>
             <div id="captcha_container"></div>
             <span id="captcha" style="margin-left:100px;color:red" ></span>
-            <div id="successmsg">Mensaje enviado con éxito. ¡Gracias!
-              <br>
-              <a href = 'https://app.box.com/s/zavbzfpbe59tsl7inoomf76vq225utd2' target='_blank'>Enlace para descargar el instalador de SeGGu</a>
-            </div>
+            <div id="successmsg">Mensaje enviado con éxito. ¡Gracias!</div>
           </div>
         </div>
       </div>
@@ -398,7 +390,7 @@
       captchaContainer = grecaptcha.render('captcha_container', {
         'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
         'callback' : function(response) {
-          captcha.innerHTML = "<button id='send-button' onCLick='showLink()' type='submit' class='btn btn-theme pull-left'>Enviar mensaje y mostrar enlace de descarga</button>";
+          captcha.innerHTML = "<button id='send-button' onCLick='showLink()' type='submit' class='btn btn-theme pull-left'>Enviar mensaje</button>";
         }
       });
     };
