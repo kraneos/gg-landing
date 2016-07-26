@@ -10,7 +10,7 @@ function onSuccess(ferror, form) {
         request.company = $('#company').val();
 
         $.ajax({
-            url: 'http://localhost:1337/register',
+            url: 'http://api.seggu.com.ar/register',
             data: JSON.stringify(request),
             contentType: 'application/json; charset=utf-8',
             type: 'POST'
