@@ -1,9 +1,6 @@
 /*global jQuery:false */
 jQuery(document).ready(function ($) {
     "use strict";
-
-    //Contact
-    $('form.contactForm').submit();
 });
 
 function onSubmit(form) {
