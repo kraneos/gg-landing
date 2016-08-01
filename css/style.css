@@ -747,6 +747,11 @@ nav#filter a {
 /*===========================
   --- Contact ----
 =========================== */
+#section-contact {
+	padding: 60px 0 60px;
+	background: #70B9B0;
+	color: #fdfdfd;
+}
 
 .validation {
 	display:none;
@@ -755,7 +760,7 @@ nav#filter a {
 	font-size:13px;
 }
 
-#successmsg {
+#successmsg, #errormsg  {
 	border:1px solid #fff;
 	display:none;
 	text-align:center;
@@ -777,7 +782,8 @@ nav#filter a {
 #contact-form input[type=text],
 #contact-form input[type=email],
 #contact-form input[type=password],
-#contact-form input[type=phone], .contactForm textarea {
+#contact-form input[type=number],
+.contactForm textarea {
 	width: 100%;
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
@@ -790,7 +796,8 @@ nav#filter a {
 #contact-form input[type=text]:focus,
 #contact-form input[type=email]:focus,
 #contact-form input[type=password]:focus,
-#contact-form input[type=phone]:focus, .contactForm textarea:focus {
+#contact-form input[type=number]:focus,
+.contactForm textarea:focus {
 	background: rgba(101, 106, 100, 1);
 	color: #eff1ef;
 	box-shadow: none;
@@ -802,7 +809,7 @@ nav#filter a {
 }
 #contact-form input[type=text],
 #contact-form input[type=password],
-#contact-form input[type=phone],
+#contact-form input[type=number],
 #contact-form input[type=email] {
 	height: 60px;
 	margin-bottom:30px;
@@ -826,7 +833,8 @@ nav#filter a {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 }
-#contact-form input[type=submit]:hover, #contact-form input[type=submit]:active {
+#contact-form input[type=submit]:hover,
+#contact-form input[type=submit]:active {
 	background: #43413e !important;
 }
 #contact-form textarea {
@@ -1087,7 +1095,7 @@ Media queries
 		border-bottom: 1px solid #666;
 	}
 	section.featured {
-		padding-top: 80px;
+		padding-top: 100px;
 	}
 
 	.team-member,.col-lg-4 {
