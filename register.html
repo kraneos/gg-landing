@@ -6,7 +6,6 @@
   <meta name="keywords" content="seggu, polizas, software para seguros, Programa para seguros, gestión de seguros, aplicación para seguros, productor de seguros, asesor de seguros, SSN, multicompañía seguros" />
   <meta name="description" content="software para gestionar pólizas de seguro en tu telefono celular, en cualquier lado">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="skin/default.css">
@@ -25,12 +24,6 @@
 
   ga('create', 'UA-61138579-2', 'auto');
   ga('send', 'pageview');
-  </script>
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script type="text/javascript">
-  (function(){
-    emailjs.init("user_uxSBgp47fOtfj5HMBjzl5");
-  })();
   </script>
 </head>
 
@@ -80,6 +73,7 @@
       </div>
     </div>
   </section>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script src="js/validate.js"></script>
   <script src='js/register.js'></script>
   <script type='text/javascript'>
@@ -91,11 +85,11 @@
     captchaContainer = grecaptcha.render('captcha_container', {
       'sitekey' : '6LfbfRMTAAAAABHo0OExtEB6ldHHv-Xgff0XTR1E',
       'callback' : function(response) {
-        captcha.innerHTML = "<button id='send-button' onCLick='showLink()' type='submit' class='btn btn-theme pull-left'>Crear Usuario</button>";
+        captcha.innerHTML = "<button id='send-button' onCLick='submit()' type='submit' class='btn btn-theme pull-left'>Crear Usuario</button>";
       }
     });
   };
-  function showLink(){
+  function submit(){
     $('form.contactForm').submit();
   }
   </script>
