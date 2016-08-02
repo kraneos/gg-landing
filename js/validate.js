@@ -1,21 +1,21 @@
-/*global jQuery:false */
+// /*global jQuery:false */
 jQuery(document).ready(function ($) {
   "use strict";
 
-//Contact
-  $('form.contactForm').submit(function () {
-		console.log("entró submit");
+  $('form.contactForm').submit(function() {
+    var form = $(this);
+    console.log("entró submit");
     var f = $(this).find('.form-group'),
-      ferror = false,
-      emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+    ferror = false,
+    emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
     f.children('input').each(function () { // run all inputs
       var i = $(this),//current input
-        rule = i.attr('data-rule');
+      rule = i.attr('data-rule');
 
       if (rule !== undefined) {
         var ierror = false,
-          pos = rule.indexOf(':', 0); // error flag for current input
+        pos = rule.indexOf(':', 0); // error flag for current input
         if (pos >= 0) {
           var exp = rule.substr(pos + 1, rule.length);
           rule = rule.substr(0, pos);
@@ -24,23 +24,23 @@ jQuery(document).ready(function ($) {
         }
 
         switch (rule) {
-        case 'required':
+          case 'required':
           if (i.val() === '') {ferror = ierror = true; }
           break;
 
-        case 'maxlen':
+          case 'maxlen':
           if (i.val().length < parseInt(exp)) { ferror = ierror = true; }
           break;
 
-        case 'email':
+          case 'email':
           if (!emailExp.test(i.val())) { ferror = ierror = true; }
           break;
 
-        case 'checked':
+          case 'checked':
           if (!i.attr('checked')) { ferror = ierror = true; }
           break;
 
-        case 'regexp':
+          case 'regexp':
           exp = new RegExp(exp);
           if (!exp.test(i.val())) { ferror = ierror = true; }
           break;
@@ -51,14 +51,10 @@ jQuery(document).ready(function ($) {
       }
     });
 
-    console.log(ferror);
     if (ferror) {
       return false;
     } else {
-      $("#successmsg").addClass("show");
-      $('#send-button').prop('disabled', true);
-      emailjs.sendForm('default_service', 'primer_contacto', this);
-      return false;
+      return onSuccess(this);
     }
   });
 });

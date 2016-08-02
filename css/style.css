@@ -84,7 +84,7 @@ a:hover {
 }
 
 /*==========================================================================
-  Misc & Adjust 
+  Misc & Adjust
  ========================================================================== */
 .row {
 	z-index: 9999;
@@ -331,13 +331,13 @@ section.section {
  --- Parallax ---
 ============================= */
 
-#parallax1{	
+#parallax1{
 	background-image: url(../img/parallax/img1.jpg);
 }
-#parallax2{	
+#parallax2{
 	background-image: url(../img/parallax/img2.jpg);
 }
-#testimonials{	
+#testimonials{
 	background-image: url(../img/parallax/NiñoPlaya.png);
 }
 /*===========================
@@ -386,7 +386,7 @@ section.section {
 .navbar-nav {
 	float: right;
 	margin-bottom: 0;
-	padding-bottom:0;	
+	padding-bottom:0;
 }
 
 .navbar .navbar-nav > .active > a {
@@ -441,14 +441,14 @@ section.featured h2.slogan {
 	font-size: 48px;
 	font-weight: 900;
 }
-  
+
  /* inner heading */
 section.featured.inner {
 	background: #eee;
 	padding: 150px 0 50px;
 }
-  
-  
+
+
 /* --- Flexslider --- */
 .flexslider {
 	margin: 0;
@@ -551,7 +551,7 @@ section.featured.inner {
 
 .tp-bullets.simplebullets.round .bullet {
 	background: url(../img/bullets-new.png) no-repeat top left;
-}  
+}
 
 .tp-caption.large_bold_white {
 	font-size:60px;
@@ -597,13 +597,13 @@ About
 	box-sizing:border-box;
 	-webkit-border-radius:50%;
 		-moz-border-radius:50%;
-			border-radius:50%;	
+			border-radius:50%;
 	margin: 0 0 20px 0;
 }
 .member-photo img {
 	-webkit-border-radius:50%;
 		-moz-border-radius:50%;
-			border-radius:50%;	
+			border-radius:50%;
 }
 
 .team-detail h4 {
@@ -651,7 +651,7 @@ nav#filter a {
 }
 
 
-.portfolio-items article img {width:100%;} 
+.portfolio-items article img {width:100%;}
 
 .portfolio-item {
 	display: block;
@@ -742,11 +742,16 @@ nav#filter a {
 	font-size: 36px;
 	font-family: Georgia, sans-serif;
 	line-height: 1.5em;
-}	
+}
 
 /*===========================
   --- Contact ----
 =========================== */
+#section-contact {
+	padding: 60px 0 60px;
+	background: #70B9B0;
+	color: #fdfdfd;
+}
 
 .validation {
 	display:none;
@@ -755,7 +760,7 @@ nav#filter a {
 	font-size:13px;
 }
 
-#successmsg {
+#successmsg, #errormsg  {
 	border:1px solid #fff;
 	display:none;
 	text-align:center;
@@ -774,7 +779,11 @@ nav#filter a {
 	z-index: 999;
 }
 
-#contact-form input[type=text],#contact-form input[type=email], .contactForm textarea {
+#contact-form input[type=text],
+#contact-form input[type=email],
+#contact-form input[type=password],
+#contact-form input[type=number],
+.contactForm textarea {
 	width: 100%;
 	background: rgba(227, 231, 228, 1);
 	font-family: 'Open Sans', sans serif;
@@ -784,7 +793,11 @@ nav#filter a {
 	vertical-align: middle;
 	padding:0 10px;
 }
-#contact-form input[type=text]:focus,#contact-form input[type=email]:focus, .contactForm textarea:focus {
+#contact-form input[type=text]:focus,
+#contact-form input[type=email]:focus,
+#contact-form input[type=password]:focus,
+#contact-form input[type=number]:focus,
+.contactForm textarea:focus {
 	background: rgba(101, 106, 100, 1);
 	color: #eff1ef;
 	box-shadow: none;
@@ -794,7 +807,10 @@ nav#filter a {
 	-moz-transition: background 0.25 ease-in;
 	-webkit-transition: background 0.25 ease-in;
 }
-#contact-form input[type=text],#contact-form input[type=email] {
+#contact-form input[type=text],
+#contact-form input[type=password],
+#contact-form input[type=number],
+#contact-form input[type=email] {
 	height: 60px;
 	margin-bottom:30px;
 }
@@ -817,7 +833,8 @@ nav#filter a {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 }
-#contact-form input[type=submit]:hover, #contact-form input[type=submit]:active {
+#contact-form input[type=submit]:hover,
+#contact-form input[type=submit]:active {
 	background: #43413e !important;
 }
 #contact-form textarea {
@@ -952,7 +969,7 @@ a.scrollup:hover{
 .social-network a.icoLinkedin:hover {
 	background-color:#007bb7;
 }
-.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i, 
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
 .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
 	color:#fff;
 }
@@ -1078,13 +1095,13 @@ Media queries
 		border-bottom: 1px solid #666;
 	}
 	section.featured {
-		padding-top: 80px;
+		padding-top: 100px;
 	}
-	
+
 	.team-member,.col-lg-4 {
 		margin-bottom: 30px;
 	}
-	
+
 	.stats .col-md-3 {
 		margin-bottom: 30px;
 	}
