@@ -7,7 +7,7 @@ function onSuccess(form) {
   request.company = $('#company').val();
 
   $.ajax({
-    url: 'http://api.seggu.com.ar/register',
+    url: 'http://10.211.55.2:1337/register',
     data: JSON.stringify(request),
     contentType: 'application/json; charset=utf-8',
     type: 'POST'
