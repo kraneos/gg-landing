@@ -7,7 +7,7 @@ function onSuccess(form) {
   request.company = $('#company').val();
 
   $.ajax({
-    url: 'http://10.211.55.2:1337/register',
+    url: 'https://seggu-api.herokuapp.com/register',
     data: JSON.stringify(request),
     contentType: 'application/json; charset=utf-8',
     type: 'POST'
