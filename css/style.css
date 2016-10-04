@@ -404,7 +404,7 @@ h1 a.navbar-brand {
 }
 
 .navbar-brand {
-	padding: 0;
+	padding-left: 50px ;
 	display: table-cell;
 	vertical-align: middle;
 	line-height: 90px;
@@ -421,7 +421,7 @@ h1 a.navbar-brand {
 }
 
 .navbar-collapse.in {
-	margin-top: -5px !important;
+	margin-top: -15px !important;
 }
 
 
@@ -1059,30 +1059,35 @@ a.socialIcon:hover, .socialHoverClass {
 /* ========================================
 Media queries
 ========================================= */
+@media (min-width: 1200px) and (max-width: 1920px) {
+	.navbar-nav {
+		margin-top: 40px;
+	}
+}
+
 @media (min-width: 959px) and (max-width: 1199px) {
 	.navbar-nav {
-		margin-top: 20px;
+		margin-top: 40px;
 	}
 }
 
 @media only screen and (min-device-width : 979px) and (max-device-width : 1024px)  {
 
 	.navbar-nav {
-		margin-top: 20px;
+		margin-top: 40px;
 	}
 }
-
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 
 	.navbar-nav {
-		margin-top: 20px;
+		margin-top: 40px;
 	}
 }
 @media (max-width: 767px) {
 
 	.navbar.navbar-fixed-top {
-		background-color:rgba(0,0,0,1);
+		background-color:rgba(0,0,0,0.5);
 	}
 	.navbar .navbar-collapse ul.nav {
 		background-color: #444;
@@ -1092,16 +1097,14 @@ Media queries
 		padding:0;
 	}
 	.navbar .navbar-collapse ul.nav li {
-		border-bottom: 1px solid #666;
+		border-bottom: 1px solid #888;
 	}
 	section.featured {
-		padding-top: 100px;
+		padding-top: 120px;
 	}
-
 	.team-member,.col-lg-4 {
 		margin-bottom: 30px;
 	}
-
 	.stats .col-md-3 {
 		margin-bottom: 30px;
 	}
